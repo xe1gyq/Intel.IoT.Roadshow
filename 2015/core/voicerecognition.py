@@ -52,7 +52,7 @@ class VoiceRecognition(object):
         if self.agent == 'nexiwave':
             self.output = self.speechrecognition.nexiwave(self.audiofilewav)
         elif self.agent == 'google':
-            self.output = self.speechrecognition.googleX(self.audiofileflac)
+            self.output = self.speechrecognition.google(self.audiofileflac)
 
         return self.output
 

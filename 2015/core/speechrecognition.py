@@ -30,6 +30,7 @@ class SpeechRecognition(object):
         #command = "curl -X POST --data-binary @'" + audiofile + "' --header 'Content-Type: audio/l16; rate=16000;' 'https://www.google.com/speech-api/v2/recognize?output=json&lang=es-es&key=" + self.key +"'"
         command = "curl -X POST --data-binary @'" + audiofile + "' --header 'Content-Type: audio/x-flac; rate=48000;' 'https://www.google.com/speech-api/v2/recognize?output=json&lang=" + self.language + "&key=" + self.key +"'"
         status, output = commands.getstatusoutput(command)
+        print output
         return output
 
     def audioread(self, audiofile):
@@ -55,25 +56,5 @@ class SpeechRecognition(object):
         result = json.loads(response)['result'][0]['alternative'][0]['transcript']
         print('Result: %s', result)
         return result
-
-    def nexiwave(self, audiofile):
-
-        # Copyright 2012 Nexiwave Canada. All rights reserved.
-        # Nexiwave Canada PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
-        self.username = self.conf.get("nexiwave", "username")
-        self.password = self.conf.get("nexiwave", "password")
-        filename = audiofile
-        """Transcribe an audio file using Nexiwave"""
-        url = 'https://api.nexiwave.com/SpeechIndexing/file/storage/' + self.username +'/recording/?authData.passwd=' + self.password + '&auto-redirect=true&response=application/json'
-        # To receive transcript in plain text, instead of html format, comment this line out (for SMS, for example)
-        # url = url + '&transcriptFormat=html'
-        # Ready to send:
-        sys.stderr.write("Send audio for transcript with " + url + "\n")
-        r = requests.post(url, files={'mediaFileData': open(filename,'rb')})
-        data = r.json()
-        transcript = data['text']
-        # Perform your magic here:
-        print "Transcript for " + filename + " = " + transcript
-        return transcript
 
 # End of File

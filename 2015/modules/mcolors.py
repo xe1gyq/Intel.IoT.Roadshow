@@ -25,7 +25,7 @@ def nonBlockingRawInput(prompt='', timeout=3):
              if button.value() == 1:
                  return True
         signal.alarm(0)
-        return text
+        return False
     except AlarmException:
         print 'Button Timeout!'
     signal.signal(signal.SIGALRM, signal.SIG_IGN)
@@ -59,7 +59,8 @@ class mColors(object):
         ansfin = nonBlockingRawInput()
 
         if anstemp is not ansfin:
-             message = "This is a wrong answer! This color is " + colorlcd
+             message = "This is a wrong answer! This color is not " + \
+             colortext + "This color is " + colorlcd
         else:
              message = "This is a good answer! This color is " + colorlcd
 

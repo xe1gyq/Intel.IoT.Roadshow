@@ -14,7 +14,7 @@ class Voice(object):
         self.filename = name
 
     def recordstart(self):
-        args = ['arecord', '-D', 'plughw:2,0', '-t', 'wav', '-f', 'S16_LE', '-r', '48000', self.filename]
+        args = ['arecord', '-D', 'plughw:1,0', '-t', 'wav', '-f', 'S16_LE', '-r', '48000', self.filename]
         proc = subprocess.Popen(args)
         print "PID:", proc.pid
         return proc
