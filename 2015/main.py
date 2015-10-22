@@ -10,6 +10,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.modules == 'hello':
-        print 'Hello'
+        print 'Hello Edison!'
 
 # End of File
