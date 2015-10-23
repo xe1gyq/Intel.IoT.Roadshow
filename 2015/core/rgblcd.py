@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from colour import Color
+from core.talk import talk
 
 import matplotlib.colors as colors
 import pyupm_i2clcd as lcd

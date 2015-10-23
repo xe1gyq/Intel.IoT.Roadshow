@@ -6,6 +6,7 @@ import time
 from core.rgblcd import RgbLcd
 from core.answer import answer
 from modules.mcolors import mColors
+from modules.mweather import mWeather
 
 if __name__ == '__main__':
 
@@ -28,6 +29,11 @@ if __name__ == '__main__':
         print 'Hello Grove - Buzzer'
         answer(True)
         answer(False)
+
+    if args.core == 'voice':
+        print 'Hello Module - Voice'
+        voice = mWeather()
+        voice.report()
 
     if args.modules == 'mcolors':
         print 'Hello Module Colors'
