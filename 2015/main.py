@@ -3,10 +3,11 @@
 import argparse
 import time
 
+from core.xcamera  import xCamera
+
 from core.rgblcd import RgbLcd
 from core.answer import answer
 from core.voice import Voice
-from core.picture  import Picture
 from modules.mcolors import mColors
 from modules.mtemperature import mTemperature
 from modules.mweather import mWeather
@@ -20,10 +21,10 @@ if __name__ == '__main__':
     parser.add_argument('-m', '--modules', help='Project Mode')
     args = parser.parse_args()
 
-    if args.core == 'picture':
-        print 'Hello Picture!'
-        picture = Picture()
-        
+    if args.core == 'xcamera':
+        print 'Hello xCamera!'
+        xcamera = xCamera()
+        xcamera.capture()
 
     if args.core == 'hello':
         print 'Hello Edison!'
