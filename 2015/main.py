@@ -3,10 +3,11 @@
 import argparse
 import time
 
-from core.xcamera  import xCamera
+from core.xanswer import xanswer
+from core.xcamera import xCamera
+from core.xtweet import xTweet
 
 from core.rgblcd import RgbLcd
-from core.answer import answer
 from core.voice import Voice
 from modules.mcolors import mColors
 from modules.mtemperature import mTemperature
@@ -21,13 +22,18 @@ if __name__ == '__main__':
     parser.add_argument('-m', '--modules', help='Project Mode')
     args = parser.parse_args()
 
+    if args.core == 'xhello':
+        print 'xHello Edison!'
+
+    if args.core == 'xanswer':
+        print 'Hello xAnswer via Grove - Buzzer'
+        xanswer(True)
+        xanswer(False)
+
     if args.core == 'xcamera':
         print 'Hello xCamera!'
         xcamera = xCamera()
         xcamera.capture()
-
-    if args.core == 'hello':
-        print 'Hello Edison!'
 
     if args.core == 'rgblcd':
         print 'Hello Grove - LCD RGB Backlight!'
@@ -35,11 +41,6 @@ if __name__ == '__main__':
         rgblcd.setCursor(0,0)
         rgblcd.setText("Hi")
         rgblcd.setColor("red")
-
-    if args.core == 'buzzer':
-        print 'Hello Grove - Buzzer'
-        answer(True)
-        answer(False)
 
     if args.core == 'voice':
         print 'Hello Core Voice'
