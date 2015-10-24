@@ -6,7 +6,7 @@ import sys
 import time
 
 import pyupm_grove as grove
-from core.rgblcd import RgbLcd
+from core.xlcdrgb import xLcdRgb
 from core.talk import talk
 from random import getrandbits 
 

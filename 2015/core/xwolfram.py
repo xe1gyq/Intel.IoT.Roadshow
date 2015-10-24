@@ -5,11 +5,12 @@ import logging
 import re
 import wolframalpha
 
-class Wolfram(object):
+class xWolfram(object):
 
     def __init__(self):
-
-        logging.info('Wolfram')
+        pass
+    
+    def setup(self):
         self.conf = ConfigParser.ConfigParser()
         self.path = "configuration/credentials.config"
         self.conf.read(self.path)
@@ -17,17 +18,16 @@ class Wolfram(object):
         self.client = wolframalpha.Client(appid)
 
     def question(self, question):
-        print 'Wolfram Question'
+        self.setup()
         res = self.client.query(question)
-        print(next(res.results).text)
-        print((next(res.results).text))
         string = re.sub('[^0-9a-zA-Z]+', ' ', next(res.results).text)
-        print(string)
         return string
 
 if __name__ == "__main__":
 
-    wf = Wolfram()
-    wf.question("what is the capital of mexico")
+    xw = xWolfram()
+    ourquestion = "What is the capital of Mexico"
+    print ourquestion
+    print xw.question(ourquestion)
 
 # End of File

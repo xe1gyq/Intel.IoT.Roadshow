@@ -5,10 +5,8 @@ import time
 
 from core.xanswer import xanswer
 from core.xcamera import xCamera
-from core.xtweet import xTweet
+from core.xtweet import xtweet
 
-from core.rgblcd import RgbLcd
-from core.voice import Voice
 from modules.mcolors import mColors
 from modules.mtemperature import mTemperature
 from modules.mweather import mWeather
