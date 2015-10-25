@@ -7,8 +7,10 @@ from core.xanswer import xanswer
 from core.xcamera import xCamera
 from core.xtweet import xtweet
 
-from modules.mweather import mWeather
+from modules.mphraserecognition import mPhraseRecognition
+from modules.mselfie import mSelfie
 from modules.mtemperature import mTemperature
+from modules.mweather import mWeather
 from modules.mwolfram import mWolfram
 
 #from modules.mcolors import mColors
@@ -36,14 +38,19 @@ if __name__ == '__main__':
         mwolfram = mWolfram()
         mwolfram.ask()
 
+    if args.modules == 'mselfie':
+        print 'Hello Module mSelfie'
+        mselfie = mSelfie()
+        mselfie.share()
+
     if args.modules == 'mcolors':
         print 'Hello Module mColors'
         mcolors = mColors()
         mcolors.show()
 
-    if args.modules == 'mvoice':
-        print 'Hello Module mVoice'
-        mvoice = mVoice()
-        mvoice.listen()
+    if args.modules == 'mphraserecognition':
+        print 'Hello Module mPhraseRecognition'
+        mpr = mPhraseRecognition()
+        mpr.decode()
 
 # End of File
