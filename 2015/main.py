@@ -7,14 +7,13 @@ from core.xanswer import xanswer
 from core.xcamera import xCamera
 from core.xtweet import xtweet
 
+from modules.mcolors import mColors
 from modules.mphraserecognition import mPhraseRecognition
 from modules.mselfie import mSelfie
 from modules.msystem import mSystem
 from modules.mtemperature import mTemperature
 from modules.mweather import mWeather
 from modules.mwolfram import mWolfram
-
-#from modules.mcolors import mColors
 
 if __name__ == '__main__':
 

@@ -41,7 +41,7 @@ class mColors(object):
         colors = ['Black', 'White', 'Red', 'Blue', 'Yellow',
                   'Gray', 'Green', 'Purple']
 
-        rgblcd = RgbLcd()
+        lcdrgb = xLcdRgb()
 
         if getrandbits(1):
             colorlcd = random.choice(colors)
@@ -52,8 +52,8 @@ class mColors(object):
             colortext = colorlcd
             anstemp = True
 
-        rgblcd.clear()
-        rgblcd.setColor(colorlcd)
+        lcdrgb.clear()
+        lcdrgb.setColor(colorlcd)
         xtalk("en-us", "Press Button if color is " + colortext)
         time.sleep(.5)
         ansfin = nonBlockingRawInput()
@@ -65,7 +65,7 @@ class mColors(object):
              message = "This is a good answer! This color is " + colorlcd
 
         try:
-            talk(message)
+            xtalk('en-us', message)
         except:
             pass
 
