@@ -7,7 +7,7 @@ import time
 
 import pyupm_grove as grove
 from core.xlcdrgb import xLcdRgb
-from core.talk import talk
+from core.xtalk import xtalk
 from random import getrandbits 
 
 class AlarmException(Exception):
@@ -54,7 +54,7 @@ class mColors(object):
 
         rgblcd.clear()
         rgblcd.setColor(colorlcd)
-        talk("Press Button if color is " + colortext)
+        xtalk("en-us", "Press Button if color is " + colortext)
         time.sleep(.5)
         ansfin = nonBlockingRawInput()
 

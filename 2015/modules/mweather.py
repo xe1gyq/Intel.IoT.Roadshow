@@ -4,6 +4,8 @@ import pywapi
 import string
 import subprocess
 
+from core.xtalk import xtalk
+
 class mWeather(object):
 
     def __init__(self):
@@ -20,9 +22,7 @@ class mWeather(object):
         message = message + ", Visibilidad " + result['atmosphere']['visibility'] + " kilometros"
         message = message + ", Humedad " + result['atmosphere']['humidity'] + " por ciento"
         message = message + ", El Sol se oculta a las " + result['astronomy']['sunset']
-        print message
 
-        command = ['core/voicerss.sh', 'es-mx', message]
-        proc = subprocess.call(command)
+        xtalk("es-mx", message)
 
 # End of File

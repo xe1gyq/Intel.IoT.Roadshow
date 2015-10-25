@@ -44,7 +44,7 @@ class mTemperature(object):
         counter = 0
 
         while True:
-            temperaturedata = self.temp.value()()
+            temperaturedata = self.temp.value()
             stream.write({'x': counter, 'y': temperaturedata})
             counter += 1
             time.sleep(0.25)

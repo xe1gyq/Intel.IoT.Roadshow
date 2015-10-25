@@ -7,11 +7,12 @@ from core.xanswer import xanswer
 from core.xcamera import xCamera
 from core.xtweet import xtweet
 
-from modules.mcolors import mColors
-from modules.mtemperature import mTemperature
 from modules.mweather import mWeather
-from modules.mvoice import mVoice
+from modules.mtemperature import mTemperature
 from modules.mwolfram import mWolfram
+
+#from modules.mcolors import mColors
+#from modules.mvoice import mVoice
 
 if __name__ == '__main__':
 
@@ -20,60 +21,29 @@ if __name__ == '__main__':
     parser.add_argument('-m', '--modules', help='Project Mode')
     args = parser.parse_args()
 
-    if args.core == 'xhello':
-        print 'xHello Edison!'
-
-    if args.core == 'xanswer':
-        print 'Hello xAnswer via Grove - Buzzer'
-        xanswer(True)
-        xanswer(False)
-
-    if args.core == 'xcamera':
-        print 'Hello xCamera!'
-        xcamera = xCamera()
-        xcamera.capture()
-
-    if args.core == 'rgblcd':
-        print 'Hello Grove - LCD RGB Backlight!'
-        rgblcd = RgbLcd()
-        rgblcd.setCursor(0,0)
-        rgblcd.setText("Hi")
-        rgblcd.setColor("red")
-
-    if args.core == 'voice':
-        print 'Hello Core Voice'
-        voice = Voice()
-        voice.record()
-        voice.play()
-
     if args.modules == 'mweather':
         print 'Hello Module mWeather'
         mweather = mWeather()
         mweather.report()
 
-    if args.modules == 'mweather':
-        print 'Hello Module mWeather'
-        mweather = mWeather()
-        mweather.report()
+    if args.modules == 'mtemperature':
+        print 'Hello Module mTemperature'
+        mtemperature =mTemperature()
+        mtemperature.graph()
+
+    if args.modules == 'mwolfram':
+        print 'Hello Module mWolfram'
+        mwolfram = mWolfram()
+        mwolfram.ask()
 
     if args.modules == 'mcolors':
         print 'Hello Module mColors'
         mcolors = mColors()
         mcolors.show()
 
-    if args.modules == 'mtemperature':
-        print 'Hello Module mTemperature'
-        mtemperature =mTemperature()
-        mtemperature.show()
-
     if args.modules == 'mvoice':
         print 'Hello Module mVoice'
         mvoice = mVoice()
         mvoice.listen()
-
-    if args.modules == 'mwolfram':
-        print 'Hello Module mWolfram'
-        mwolfram = mWolfram()
-        mwolfram.ask()
 
 # End of File
