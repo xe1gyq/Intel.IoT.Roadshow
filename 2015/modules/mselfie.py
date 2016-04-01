@@ -3,7 +3,7 @@
 from random import randint
 
 from core.xcamera import xCamera
-from core.xtweet import xtweet
+from core.xtwitter import xTwitter
 
 class mSelfie(object):
 
@@ -14,6 +14,6 @@ class mSelfie(object):
         self.xc.capture()
         picture = self.xc.filepath()
         id = str(randint(0,99))
-        xtweet("0x" + id + " #IoT #IoTLearningInit #IoTLearningInitiative IoTPy Selfie Project!", picture)
+        tweet("0x" + id + " #IoT #IoTLearningInit #IoTLearningInitiative IoTPy Selfie Project!", picture)
 
 # End of File

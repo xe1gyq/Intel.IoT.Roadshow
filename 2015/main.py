@@ -3,11 +3,10 @@
 import argparse
 import time
 
-from core.xanswer import xanswer
 from core.xcamera import xCamera
-from core.xtweet import xtweet
+from core.xtwitter import xTwitter
 
-from modules.mcolors import mColors
+#from modules.mcolors import mColors
 from modules.mphraserecognition import mPhraseRecognition
 from modules.mselfie import mSelfie
 from modules.msystem import mSystem
